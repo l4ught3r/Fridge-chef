@@ -44,9 +44,9 @@ export function CategorizedIngredientSuggestions({
 
 	return (
 		<div className='space-y-4 border-t border-gray-100 pt-4'>
-			<div className='flex items-center gap-2'>
-				<Sparkle className='size-4 text-[#E95B3C]' />
-				<h4 className='font-mono text-xs font-bold tracking-wider text-[#1A1A1A] uppercase'>
+			<div className='flex min-w-0 items-center gap-2'>
+				<Sparkle className='size-4 shrink-0 text-[#E95B3C]' />
+				<h4 className='min-w-0 font-mono text-[10px] font-bold tracking-wider text-[#1A1A1A] uppercase sm:text-xs'>
 					Быстрый подбор популярных ингредиентов
 				</h4>
 			</div>

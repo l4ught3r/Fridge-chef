@@ -59,11 +59,11 @@ export function CookingMode({ recipe, isOpen, onClose }: CookingModeProps) {
 				if (!open) handleClose()
 			}}
 		>
-			<DialogContent className='max-w-md overflow-hidden border-gray-100 bg-[#FEFAF2] p-0 max-sm:max-w-none sm:max-w-md'>
+			<DialogContent className='max-w-md overflow-x-hidden border-gray-100 bg-[#FEFAF2] p-0 max-sm:max-w-none sm:max-w-md'>
 				<div className='pointer-events-none absolute top-0 right-0 size-32 rounded-full bg-[#FFD966] opacity-30 blur-3xl' />
 				<div className='pointer-events-none absolute bottom-0 left-0 size-40 rounded-full bg-[#E95B3C] opacity-10 blur-3xl' />
 
-				<div className='relative p-6'>
+				<div className='relative p-4 sm:p-6'>
 					<DialogHeader className='mb-4 space-y-3'>
 						<div className='flex items-start justify-between gap-3 pr-8'>
 							<div className='flex items-center gap-2.5'>
@@ -102,12 +102,12 @@ export function CookingMode({ recipe, isOpen, onClose }: CookingModeProps) {
 								style={{ transform: `scaleX(${progress / 100})` }}
 							/>
 						</div>
-						<div className='flex justify-center gap-1 pt-1'>
+						<div className='fc-scroll-area -mx-1 flex justify-center gap-1 overflow-x-auto px-1 pt-1 snap-x'>
 							{recipe.steps.map((step, stepIndex) => (
 								<span
 									key={step}
 									className={cn(
-										'size-1.5 rounded-full transition-colors duration-150 ease-[var(--ease-out)]',
+										'size-1.5 shrink-0 snap-center rounded-full transition-colors duration-150 ease-[var(--ease-out)]',
 										stepIndex <= currentStep ? 'bg-[#E95B3C]' : 'bg-gray-200'
 									)}
 								/>
@@ -164,10 +164,11 @@ export function CookingMode({ recipe, isOpen, onClose }: CookingModeProps) {
 							animate={{ opacity: 1 }}
 							transition={{ duration: 0.15, ease: [0.23, 1, 0.32, 1] }}
 							onClick={handleClose}
-							className='fc-interactive fc-press mt-3 flex h-12 w-full cursor-pointer items-center justify-center gap-2 rounded-2xl border border-[#bbf7d0] bg-[#DCFCE7] font-extrabold text-[#166534] hover:bg-[#bbf7d0]'
+							className='fc-interactive fc-press mt-3 flex h-12 w-full cursor-pointer items-center justify-center gap-2 rounded-2xl border border-[#bbf7d0] bg-[#DCFCE7] text-sm font-extrabold text-[#166534] hover:bg-[#bbf7d0] sm:text-base'
 						>
-							<ChefHat className='size-5' />
-							Готово! Приятного аппетита
+							<ChefHat className='size-5 shrink-0' />
+							<span className='sm:hidden'>Готово!</span>
+							<span className='hidden sm:inline'>Готово! Приятного аппетита</span>
 						</motion.button>
 					)}
 				</div>

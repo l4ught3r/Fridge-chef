@@ -53,7 +53,9 @@
 	--fc-safe-left: env(safe-area-inset-left, 0px);
 	--fc-safe-right: env(safe-area-inset-right, 0px);
 	--fc-bottom-nav-h: 4.5rem;
+	--fc-sticky-actions-h: 4rem;
 	--fc-page-pb-mobile: calc(var(--fc-bottom-nav-h) + var(--fc-safe-bottom));
+	--fc-page-pb-sticky-mobile: calc(var(--fc-sticky-actions-h) + var(--fc-safe-bottom));
 	--radius: 0.625rem;
 	--background: oklch(1 0 0);
 	--foreground: oklch(0.145 0 0);
@@ -170,6 +172,41 @@
 
 	.fc-page-pb-safe {
 		padding-bottom: max(0.5rem, var(--fc-safe-bottom));
+	}
+
+	.fc-page-pb-sticky {
+		padding-bottom: var(--fc-page-pb-sticky-mobile);
+	}
+
+	@media (width >= 640px) {
+		.fc-page-pb-sticky {
+			padding-bottom: max(0.5rem, var(--fc-safe-bottom));
+		}
+	}
+
+	.fc-toaster-safe {
+		top: calc(var(--fc-safe-top) + 0.75rem) !important;
+	}
+
+	.fc-scroll-fade-x {
+		position: relative;
+	}
+
+	.fc-scroll-fade-x::after {
+		content: "";
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		width: 2rem;
+		pointer-events: none;
+		background: linear-gradient(to left, var(--background) 0%, transparent 100%);
+	}
+
+	@media (width >= 640px) {
+		.fc-scroll-fade-x::after {
+			display: none;
+		}
 	}
 
 	.fc-scroll-area {

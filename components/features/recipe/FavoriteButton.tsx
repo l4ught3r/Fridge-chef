@@ -35,6 +35,7 @@ export function FavoriteButton({
 				disabled={loading}
 				onClick={handleClick}
 				id='favorite_heart_toggle'
+				aria-label={favorited ? 'Убрать из избранного' : 'В избранное'}
 				className={cn(
 					'fc-interactive fc-press flex cursor-pointer items-center gap-1.5 rounded-xl border px-3.5 py-1.5 text-xs font-bold shadow-sm',
 					favorited
@@ -43,8 +44,8 @@ export function FavoriteButton({
 					className
 				)}
 			>
-				<Heart className={cn('size-3.5', favorited && 'fill-rose-500 text-rose-500')} />
-				{favorited ? 'В избранном' : 'В избранное'}
+				<Heart className={cn('size-3.5 shrink-0', favorited && 'fill-rose-500 text-rose-500')} />
+				<span className='hidden sm:inline'>{favorited ? 'В избранном' : 'В избранное'}</span>
 			</button>
 		)
 	}

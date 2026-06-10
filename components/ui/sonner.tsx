@@ -7,7 +7,7 @@ export function Toaster({ ...props }: ToasterProps) {
 		<Sonner
 			theme='light'
 			duration={3000}
-			className='toaster group'
+			className='toaster group fc-toaster-safe'
 			toastOptions={{
 				classNames: {
 					toast:

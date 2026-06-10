@@ -113,7 +113,7 @@ export function SearchResults() {
 			<EmptyState
 				icon={UtensilsCrossed}
 				title='Холодильник пуст'
-				description='Добавьте продукты выше — здесь появятся подобранные рецепты.'
+				description='Добавьте продукты на главной — здесь появятся подобранные рецепты.'
 			>
 				<Button
 					asChild

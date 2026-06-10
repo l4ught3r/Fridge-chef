@@ -24,7 +24,7 @@ export function PageHeader({
 			/>
 
 			<div className='min-w-0 flex-1 text-left sm:text-right'>
-				<h1 className='flex items-center gap-2 text-base font-extrabold text-[#1A1A1A] sm:justify-end sm:text-lg'>
+				<h1 className='line-clamp-2 flex items-center gap-2 text-sm font-extrabold text-[#1A1A1A] sm:justify-end sm:text-base md:text-lg'>
 					{title}
 				</h1>
 				{subtitle && <p className='text-xs font-semibold text-gray-500'>{subtitle}</p>}

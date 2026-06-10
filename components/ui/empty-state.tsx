@@ -20,7 +20,7 @@ export function EmptyState({
 	return (
 		<div
 			className={cn(
-				'space-y-3 rounded-3xl border border-dashed border-gray-200 bg-white p-12 text-center',
+				'space-y-3 rounded-3xl border border-dashed border-gray-200 bg-white p-6 text-center sm:p-10 md:p-12',
 				className
 			)}
 		>

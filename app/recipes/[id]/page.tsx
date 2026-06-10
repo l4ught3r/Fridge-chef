@@ -14,6 +14,7 @@ import { addRecentRecipe } from '@/lib/recent'
 import { getRecipeBack, parseRecipeFrom } from '@/lib/recipe-navigation'
 import { getRecipeById } from '@/lib/recipes'
 import { useAppStore } from '@/lib/store'
+import { cn } from '@/lib/utils'
 import type { Recipe } from '@/types/recipe'
 
 export default function RecipePage() {
@@ -64,7 +65,7 @@ export default function RecipePage() {
 				<PageContent>
 					<AppHeader className='mb-3' />
 				</PageContent>
-				<ScrollArea className='fc-page-pb-safe flex-1'>
+				<ScrollArea className={cn('flex-1', recipe ? 'fc-page-pb-sticky' : 'fc-page-pb-safe')}>
 					<main>
 						<div className='mb-4 border-b border-gray-200 pb-3'>
 							<PageBackLink
@@ -96,7 +97,7 @@ export default function RecipePage() {
 						)}
 
 						{!loading && !recipe && (
-							<div className='rounded-3xl border border-dashed border-gray-200 bg-white p-12 text-center'>
+							<div className='rounded-3xl border border-dashed border-gray-200 bg-white p-6 text-center sm:p-10 md:p-12'>
 								<p className='text-sm font-bold text-gray-700'>Рецепт не найден.</p>
 								<Link
 									href={back.href}

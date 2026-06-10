@@ -1,6 +1,5 @@
 'use client'
 
-import { IngredientInput } from '@/components/features/ingredients/IngredientInput'
 import { SearchResults } from '@/components/features/search/SearchResults'
 import { AppHeader } from '@/components/layout/AppHeader'
 import { BottomNav } from '@/components/layout/BottomNav'
@@ -27,8 +26,6 @@ export default function SearchPage() {
 							backHref='/'
 							backLabel='На главную'
 						/>
-
-						<IngredientInput compact />
 
 						<SearchResults />
 					</main>

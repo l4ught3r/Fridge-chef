@@ -5,6 +5,7 @@ import { Check, ChefHat, Clock, Flame, UtensilsCrossed } from 'lucide-react'
 import { useState } from 'react'
 import { CookingMode } from '@/components/features/recipe/CookingMode'
 import { FavoriteButton } from '@/components/features/recipe/FavoriteButton'
+import { RecipeStickyActions } from '@/components/features/recipe/RecipeStickyActions'
 import { RecipeImage } from '@/components/features/recipe/RecipeImage'
 import { RecipeIngredientList } from '@/components/features/recipe/RecipeIngredientList'
 import type { Recipe } from '@/types/recipe'
@@ -62,31 +63,35 @@ export function RecipeDetailView({ recipe }: RecipeDetailViewProps) {
 					</p>
 				</div>
 
-				<div className='grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-4'>
-					<div className='flex flex-col items-center rounded-2xl border border-gray-100 bg-white p-3 text-center shadow-xs sm:p-4'>
-						<Clock className='mb-1 size-5 text-[#E95B3C]' />
+				<div className='grid grid-cols-3 gap-2 sm:gap-4 md:grid-cols-4'>
+					<div className='flex flex-col items-center rounded-2xl border border-gray-100 bg-white p-2 text-center shadow-xs sm:p-4'>
+						<Clock className='mb-1 size-4 text-[#E95B3C] sm:size-5' />
 						<span className='font-mono text-[10px] font-bold tracking-wide text-gray-400 uppercase'>
 							Время
 						</span>
-						<span className='mt-0.5 text-sm font-bold text-gray-700'>{recipe.timeLabel}</span>
+						<span className='mt-0.5 text-xs font-bold text-gray-700 sm:text-sm'>
+							{recipe.timeLabel}
+						</span>
 					</div>
-					<div className='flex flex-col items-center rounded-2xl border border-gray-100 bg-white p-3 text-center shadow-xs sm:p-4'>
-						<ChefHat className='mb-1 size-5 text-amber-500' />
+					<div className='flex flex-col items-center rounded-2xl border border-gray-100 bg-white p-2 text-center shadow-xs sm:p-4'>
+						<ChefHat className='mb-1 size-4 text-amber-500 sm:size-5' />
 						<span className='font-mono text-[10px] font-bold tracking-wide text-gray-400 uppercase'>
 							Сложность
 						</span>
-						<span className='mt-0.5 max-w-full truncate text-sm font-bold text-gray-700'>
+						<span className='mt-0.5 max-w-full truncate text-xs font-bold text-gray-700 sm:text-sm'>
 							{recipe.difficulty}
 						</span>
 					</div>
-					<div className='flex flex-col items-center rounded-2xl border border-gray-100 bg-white p-3 text-center shadow-xs sm:p-4'>
-						<UtensilsCrossed className='mb-1 size-5 text-emerald-600' />
+					<div className='flex flex-col items-center rounded-2xl border border-gray-100 bg-white p-2 text-center shadow-xs sm:p-4'>
+						<UtensilsCrossed className='mb-1 size-4 text-emerald-600 sm:size-5' />
 						<span className='font-mono text-[10px] font-bold tracking-wide text-gray-400 uppercase'>
 							Порции
 						</span>
-						<span className='mt-0.5 text-sm font-bold text-gray-700'>{portions} порц.</span>
+						<span className='mt-0.5 text-xs font-bold text-gray-700 sm:text-sm'>
+							{portions} порц.
+						</span>
 					</div>
-					<div className='hidden flex-col items-center rounded-2xl border border-gray-100 bg-white p-3 text-center shadow-xs sm:flex sm:p-4'>
+					<div className='hidden flex-col items-center rounded-2xl border border-gray-100 bg-white p-2 text-center shadow-xs md:flex md:p-4'>
 						<Flame className='mb-1 size-5 text-orange-500' />
 						<span className='font-mono text-[10px] font-bold tracking-wide text-gray-400 uppercase'>
 							Категория
@@ -106,7 +111,7 @@ export function RecipeDetailView({ recipe }: RecipeDetailViewProps) {
 						/>
 					</div>
 
-					<div className='space-y-4 rounded-3xl border border-gray-100 bg-white p-6 shadow-sm lg:col-span-7'>
+					<div className='space-y-4 rounded-3xl border border-gray-100 bg-white p-4 shadow-sm sm:p-6 lg:col-span-7'>
 						<div className='border-b border-gray-100 pb-3'>
 							<h3 className='font-mono text-sm font-bold tracking-wider text-[#1A1A1A] uppercase'>
 								🍳 Пошаговый процесс приготовления:
@@ -165,7 +170,7 @@ export function RecipeDetailView({ recipe }: RecipeDetailViewProps) {
 						<button
 							type='button'
 							onClick={() => setCookingOpen(true)}
-							className='fc-interactive fc-press flex w-full cursor-pointer items-center justify-center gap-2 rounded-2xl bg-[#E95B3C] py-3.5 font-extrabold text-white shadow-lg shadow-orange-200/50 hover:bg-[#D14A2E] sm:py-4'
+							className='fc-interactive fc-press hidden w-full cursor-pointer items-center justify-center gap-2 rounded-2xl bg-[#E95B3C] py-3.5 font-extrabold text-white shadow-lg shadow-orange-200/50 hover:bg-[#D14A2E] sm:flex sm:py-4'
 						>
 							<ChefHat className='size-5' />
 							Режим готовки
@@ -173,6 +178,11 @@ export function RecipeDetailView({ recipe }: RecipeDetailViewProps) {
 					</div>
 				</div>
 			</div>
+
+			<RecipeStickyActions
+				recipeId={recipe.id}
+				onCookingMode={() => setCookingOpen(true)}
+			/>
 
 			<CookingMode
 				recipe={recipe}

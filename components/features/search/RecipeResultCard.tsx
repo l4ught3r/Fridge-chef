@@ -53,7 +53,7 @@ export function RecipeResultCard({ recipe }: RecipeResultCardProps) {
 						</span>
 					</div>
 
-					<h3 className='fc-group-hover-brand text-lg font-extrabold text-gray-900 transition-colors duration-150 ease-[var(--ease-out)] sm:text-xl'>
+					<h3 className='fc-group-hover-brand min-w-0 text-lg font-extrabold text-gray-900 transition-colors duration-150 ease-[var(--ease-out)] sm:text-xl'>
 						{recipe.name}
 					</h3>
 
@@ -69,7 +69,7 @@ export function RecipeResultCard({ recipe }: RecipeResultCardProps) {
 					</div>
 				</div>
 
-				<div className='relative z-10 flex max-h-24 shrink-0 flex-col justify-center space-y-1.5 border-gray-100 border-t pt-3 md:w-64 md:border-t-0 md:border-l md:pt-0 md:pl-4'>
+				<div className='relative z-10 flex shrink-0 flex-col justify-center space-y-1.5 border-gray-100 border-t pt-3 md:max-h-none md:w-64 md:border-t-0 md:border-l md:pt-0 md:pl-4'>
 					<p className='font-mono text-[9px] font-bold tracking-wider text-gray-400 uppercase'>
 						Ингредиенты:
 					</p>

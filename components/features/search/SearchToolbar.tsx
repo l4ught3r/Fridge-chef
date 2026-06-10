@@ -106,36 +106,38 @@ export function SearchToolbar({ categoryCounts }: SearchToolbarProps) {
 					<p className='font-mono text-[10px] font-bold tracking-wider text-gray-400 uppercase'>
 						Категория
 					</p>
-					<div
-						className='-mx-1 flex gap-1.5 overflow-x-auto px-1 pb-1 snap-x sm:mx-0 sm:flex-wrap sm:overflow-visible sm:px-0 sm:pb-0'
-						role='tablist'
-						aria-label='Категории рецептов'
-					>
-						{categoryTabs.map(({ name, count }, index) => {
-							const active = searchCategory === name
-							const label = name ?? 'Все'
-							return (
-								<button
-									key={label}
-									ref={element => {
-										categoryTabRefs.current[index] = element
-									}}
-									type='button'
-									role='tab'
-									tabIndex={active ? 0 : -1}
-									aria-selected={active}
-									aria-controls='recipes_results_list'
-									onClick={() => setSearchCategory(name)}
-									onKeyDown={event =>
-										handleTabKeyDown(event, index, categoryTabs.length, focusCategoryTab)
-									}
-									className={categoryChipClass(active)}
-								>
-									<span>{label}</span>
-									{name && <span className={categoryCountClass(active)}>{count}</span>}
-								</button>
-							)
-						})}
+					<div className='fc-scroll-fade-x -mx-1 sm:mx-0'>
+						<div
+							className='flex gap-1.5 overflow-x-auto px-1 pb-1 snap-x sm:flex-wrap sm:overflow-visible sm:px-0 sm:pb-0'
+							role='tablist'
+							aria-label='Категории рецептов'
+						>
+							{categoryTabs.map(({ name, count }, index) => {
+								const active = searchCategory === name
+								const label = name ?? 'Все'
+								return (
+									<button
+										key={label}
+										ref={element => {
+											categoryTabRefs.current[index] = element
+										}}
+										type='button'
+										role='tab'
+										tabIndex={active ? 0 : -1}
+										aria-selected={active}
+										aria-controls='recipes_results_list'
+										onClick={() => setSearchCategory(name)}
+										onKeyDown={event =>
+											handleTabKeyDown(event, index, categoryTabs.length, focusCategoryTab)
+										}
+										className={categoryChipClass(active)}
+									>
+										<span>{label}</span>
+										{name && <span className={categoryCountClass(active)}>{count}</span>}
+									</button>
+								)
+							})}
+						</div>
 					</div>
 				</div>
 			)}
