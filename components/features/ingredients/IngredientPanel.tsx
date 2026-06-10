@@ -81,7 +81,7 @@ export function IngredientPanel({
 				<CategorizedIngredientSuggestions />
 
 				{showActions && children && (
-					<div className={cn('flex flex-col gap-3 pt-4 sm:flex-row')}>{children}</div>
+					<div className={cn('relative z-20 flex flex-col gap-3 pt-4 sm:flex-row')}>{children}</div>
 				)}
 			</div>
 

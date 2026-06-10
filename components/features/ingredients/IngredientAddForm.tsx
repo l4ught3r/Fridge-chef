@@ -179,7 +179,7 @@ export function IngredientAddForm({ id = 'ingredient_bar_input' }: IngredientAdd
 					id={listboxId}
 					role='listbox'
 					aria-label='Список продуктов'
-					className='fc-popover absolute top-[calc(100%+0.5rem)] right-0 left-0 z-50 rounded-[1.75rem] border border-gray-100 bg-white p-4 shadow-[0_32px_64px_-12px_rgba(0,0,0,0.12)] ring-1 ring-black/5'
+					className='fc-popover relative z-10 mt-2 rounded-[1.75rem] border border-gray-100 bg-white p-4 shadow-[0_32px_64px_-12px_rgba(0,0,0,0.12)] ring-1 ring-black/5'
 				>
 					<div className='mb-3 flex items-center gap-2'>
 						<Sparkles className='size-3.5 text-[#E95B3C]' />

@@ -3,6 +3,7 @@
 import { ChefHat, Loader2 } from 'lucide-react'
 import { type ReactNode, useEffect, useState } from 'react'
 import { PantryProvider } from '@/components/providers/PantryProvider'
+import { PwaWarmup } from '@/components/providers/PwaWarmup'
 import { initializeDatabase } from '@/lib/seed'
 
 interface DbProviderProps {
@@ -51,6 +52,7 @@ export function DbProvider({ children }: DbProviderProps) {
 
 	return (
 		<div className='flex h-dvh min-h-0 flex-col overflow-hidden'>
+			<PwaWarmup />
 			<PantryProvider>{children}</PantryProvider>
 		</div>
 	)

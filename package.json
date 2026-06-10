@@ -6,6 +6,7 @@
 		"dev": "next dev",
 		"build": "next build --webpack",
 		"start": "next start",
+		"prod": "next build --webpack && next start",
 		"lint": "biome check",
 		"format": "biome format --write"
 	},
@@ -36,7 +37,7 @@
 		"@types/react": "^19",
 		"@types/react-dom": "^19",
 		"babel-plugin-react-compiler": "1.0.0",
-		"next-pwa": "^5.6.0",
+		"@ducanh2912/next-pwa": "^10.2.9",
 		"shadcn": "^4.10.0",
 		"tailwindcss": "^4",
 		"typescript": "^5"

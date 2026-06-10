@@ -40,7 +40,3 @@ bun run dev
 ```
 
 Откройте [http://localhost:3000](http://localhost:3000).
-
-## Данные
-
-Каталог рецептов и фотографии — из [TheMealDB](https://www.themealdb.com). Подробности в [docs/DATA_ATTRIBUTION.md](docs/DATA_ATTRIBUTION.md).
